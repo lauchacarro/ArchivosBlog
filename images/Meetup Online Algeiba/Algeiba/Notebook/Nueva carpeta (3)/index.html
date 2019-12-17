@@ -1,0 +1,165 @@
+<html>
+
+<head>
+  <style>
+    .buttons {
+      display: flex;
+      font-family: Helvetica;
+      font-weight: 400;
+      flex-wrap: wrap;
+      justify-content: flex-start;
+      margin: 0 auto;
+      width: 310px;
+    }
+
+    .button {
+      border: 1px solid #006494;
+      border-radius: 50px;
+      color: #006494;
+      cursor: pointer;
+      display: inline-block;
+      font-size: 26px;
+      height: 80px;
+      line-height: 80px;
+      margin: 10px;
+      text-align: center;
+      width: 80px;
+      -webkit-transition: all 0.3s;
+      transition: all 0.3s;
+      user-select: none;
+      -moz-user-select: none;
+      -khtml-user-select: none;
+      -webkit-user-select: none;
+      -o-user-select: none;
+    }
+
+    .button:hover {
+      background-color: #006494;
+      color: #FFFFFF;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="buttons">
+    <div class="button" onclick="SendStart()">Start</div>
+    <div class="button" onclick="SendStop()">Stop</div>
+    <div class="button" onclick="SendEscena1()">S 1</div>
+    <div class="button" onclick="SendEscena2()">S 2</div>
+    <div class="button" onclick="SendEscena3()">S 3</div>
+    <div class="button" onclick="SendEscena4()">S 4</div>
+    <div class="button" onclick="SendEscena5()">S 5</div>
+    <div class="button" onclick="SendIzquierda()">&larr;</div>
+    <div class="button" onclick="SendDerecha()">&rarr;</div>
+    <div id="demo"></div>
+    <p>S1: Escena 1 : Pantalla y Camara</p>
+    <p>S2: Escena 2 : Imagen "En instantes empezamos"</p>
+    <p>S3: Escena 3 : Solo Camara</p>
+    <p>S4: Escena 4 : Imagen "Ya Volvemos"</p>
+    <p>S5: Escena 5 : Imagen "Muchas Gracias"</p>
+    <!-- <div class="button">7</div> -->
+    <!-- <div class="button">8</div> -->
+    <!-- <div class="button">9</div> -->
+    <!-- <div class="button">&larr;</div> -->
+    <!-- <div class="button">0</div> -->
+    <!-- <div class="button">&rarr;</div> -->
+  </div>
+  <script>
+    function SendStart() {
+      var xhttp = new XMLHttpRequest();
+      xhttp.onreadystatechange = function () {
+        if (this.readyState == 4 && this.status == 200) {
+          document.getElementById("demo").innerHTML = "SendStart: OK";
+        }
+      };
+      xhttp.open("GET", "http://192.168.137.1:5000/api/hotkeys/simulate?hotkeynames=StartTransmission", true);
+      xhttp.send();
+    }
+    function SendStop() {
+      var xhttp = new XMLHttpRequest();
+      xhttp.onreadystatechange = function () {
+        if (this.readyState == 4 && this.status == 200) {
+          document.getElementById("demo").innerHTML = "SendStop: OK";
+        }
+      };
+      xhttp.open("GET", "http://192.168.137.1:5000/api/hotkeys/simulate?hotkeynames=StopTransmission", true);
+      xhttp.send();
+    }
+    function SendEscena1() {
+      var xhttp = new XMLHttpRequest();
+      xhttp.onreadystatechange = function () {
+        if (this.readyState == 4 && this.status == 200) {
+          document.getElementById("demo").innerHTML = "SendEscena1: OK";
+        }
+      };
+      xhttp.open("GET", "http://192.168.137.1:5000/api/hotkeys/simulate?hotkeynames=Scene1&hotkeynames=RemoveSilenceMicrophone", true);
+      xhttp.send();
+    }
+    function SendEscena2() {
+      var xhttp = new XMLHttpRequest();
+      xhttp.onreadystatechange = function () {
+        if (this.readyState == 4 && this.status == 200) {
+          document.getElementById("demo").innerHTML = "SendEscena2: OK";
+        }
+      };
+      xhttp.open("GET", "http://192.168.137.1:5000/api/hotkeys/simulate?hotkeynames=Scene2&hotkeynames=SilenceMicrophone", true);
+      xhttp.send();
+    }
+
+    function SendEscena3() {
+      var xhttp = new XMLHttpRequest();
+      xhttp.onreadystatechange = function () {
+        if (this.readyState == 4 && this.status == 200) {
+          document.getElementById("demo").innerHTML = "SendEscena3: OK";
+        }
+      };
+      xhttp.open("GET", "http://192.168.137.1:5000/api/hotkeys/simulate?hotkeynames=Scene3&hotkeynames=RemoveSilenceMicrophone", true);
+      xhttp.send();
+    }
+
+    function SendEscena4() {
+      var xhttp = new XMLHttpRequest();
+      xhttp.onreadystatechange = function () {
+        if (this.readyState == 4 && this.status == 200) {
+          document.getElementById("demo").innerHTML = "SendEscena4: OK";
+        }
+      };
+      xhttp.open("GET", "http://192.168.137.1:5000/api/hotkeys/simulate?hotkeynames=Scene4&hotkeynames=SilenceMicrophone", true);
+      xhttp.send();
+    }
+
+    function SendEscena5() {
+      var xhttp = new XMLHttpRequest();
+      xhttp.onreadystatechange = function () {
+        if (this.readyState == 4 && this.status == 200) {
+          document.getElementById("demo").innerHTML = "SendEscena5: OK";
+        }
+      };
+      xhttp.open("GET", "http://192.168.137.1:5000/api/hotkeys/simulate?hotkeynames=Scene5&hotkeynames=SilenceMicrophone", true);
+      xhttp.send();
+    }
+    function SendIzquierda() {
+      var xhttp = new XMLHttpRequest();
+      xhttp.onreadystatechange = function () {
+        if (this.readyState == 4 && this.status == 200) {
+          document.getElementById("demo").innerHTML = "SendIzquierda: OK";
+        }
+      };
+      xhttp.open("GET", "http://192.168.137.1:5000/api/hotkeys/simulate?hotkeynames=ArrowLeft", true);
+      xhttp.send();
+    }
+    function SendDerecha() {
+      var xhttp = new XMLHttpRequest();
+      xhttp.onreadystatechange = function () {
+        if (this.readyState == 4 && this.status == 200) {
+          document.getElementById("demo").innerHTML = "SendDerecha: OK";
+        }
+      };
+      xhttp.open("GET", "http://192.168.137.1:5000/api/hotkeys/simulate?hotkeynames=ArrowRight", true);
+      xhttp.send();
+    }
+
+
+  </script>
+</body>
+<html>
